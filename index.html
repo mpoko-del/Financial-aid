@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
-    <title>Check Your Financial Aid Eligibility</title>
+    <title>Need Financial Assistance?</title>
     <style>
         /* ----- Reset & Base ----- */
         * {
@@ -13,116 +13,91 @@
         }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background: #f8fafc;
+            background: #ffffff;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
             padding: 20px;
+            margin: 0;
         }
         .container {
-            max-width: 500px;
+            max-width: 520px;
             width: 100%;
             background: #ffffff;
-            border-radius: 24px;
-            padding: 32px 24px;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            border-radius: 28px;
+            padding: 40px 28px 32px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
             text-align: center;
+            border: 1px solid #f0f2f5;
         }
 
-        /* ----- Header ----- */
-        .badge {
+        /* ----- Urgency Badge (like "Grants Updated June 30th, 2026") ----- */
+        .update-badge {
             display: inline-block;
-            background: #eef2ff;
-            color: #4f46e5;
-            font-size: 12px;
-            font-weight: 600;
-            padding: 4px 14px;
-            border-radius: 20px;
-            letter-spacing: 0.3px;
-            margin-bottom: 16px;
-        }
-        h1 {
-            font-size: 26px;
+            background: #e6f7e6;
+            color: #0b7e3d;
+            font-size: 14px;
             font-weight: 700;
-            color: #0a0a0a;
-            line-height: 1.3;
-            margin-bottom: 8px;
+            padding: 6px 20px;
+            border-radius: 40px;
+            letter-spacing: 0.3px;
+            margin-bottom: 20px;
+            border: 1px solid #b8e0b8;
         }
-        h1 span {
-            color: #4f46e5;
-        }
-        .subhead {
-            font-size: 16px;
-            color: #475569;
-            margin-bottom: 24px;
-            line-height: 1.5;
+        .update-badge::before {
+            content: "📅 ";
         }
 
-        /* ----- Checklist ----- */
-        .checklist {
-            background: #f8fafc;
-            border-radius: 16px;
-            padding: 20px 18px;
-            text-align: left;
-            margin-bottom: 20px;
+        /* ----- Headline ----- */
+        h1 {
+            font-size: 32px;
+            font-weight: 800;
+            color: #0a0a0a;
+            line-height: 1.2;
+            margin-bottom: 12px;
         }
-        .checklist-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 15px;
+
+        /* ----- Body Text ----- */
+        .description {
+            font-size: 18px;
             color: #1e293b;
-            padding: 8px 0;
-            border-bottom: 1px solid #e9edf2;
-        }
-        .checklist-item:last-child {
-            border-bottom: none;
-        }
-        .checklist-item .icon {
-            flex-shrink: 0;
-            width: 22px;
-            height: 22px;
-            background: #dbeafe;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-            color: #2563eb;
-            font-weight: 700;
+            line-height: 1.6;
+            margin-bottom: 28px;
+            font-weight: 400;
+            padding: 0 4px;
         }
 
         /* ----- CTA Button ----- */
         .cta-btn {
             display: block;
             width: 100%;
-            background: #2563eb;
+            background: #0b7e3d;
             color: #ffffff;
-            font-size: 18px;
+            font-size: 20px;
             font-weight: 700;
-            padding: 16px 20px;
+            padding: 18px 20px;
             border: none;
             border-radius: 60px;
             cursor: pointer;
             text-decoration: none;
             transition: background 0.2s ease;
-            margin: 10px 0 14px;
-            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.30);
+            margin: 6px 0 18px;
+            box-shadow: 0 6px 18px rgba(11, 126, 61, 0.30);
         }
         .cta-btn:hover {
-            background: #1d4ed8;
+            background: #096b32;
         }
         .cta-btn:active {
             transform: scale(0.97);
         }
 
-        /* ----- Trust & Disclaimer ----- */
+        /* ----- Trust Row ----- */
         .trust-row {
             display: flex;
             justify-content: center;
-            gap: 18px;
-            font-size: 13px;
+            gap: 22px;
+            font-size: 14px;
             color: #64748b;
             margin: 10px 0 16px;
             flex-wrap: wrap;
@@ -130,112 +105,87 @@
         .trust-row span {
             display: flex;
             align-items: center;
-            gap: 4px;
+            gap: 5px;
         }
+
+        /* ----- Disclaimer ----- */
         .disclaimer {
             font-size: 12px;
             color: #94a3b8;
             line-height: 1.6;
-            background: #f1f5f9;
-            padding: 12px 14px;
-            border-radius: 12px;
-            margin: 16px 0 10px;
+            background: #f8fafc;
+            padding: 14px 16px;
+            border-radius: 14px;
+            margin: 14px 0 8px;
+            border: 1px solid #eef2f6;
         }
         .disclaimer a {
-            color: #2563eb;
+            color: #0b7e3d;
             text-decoration: none;
+            font-weight: 500;
         }
         .disclaimer a:hover {
             text-decoration: underline;
         }
 
-        /* ----- Footer Links ----- */
+        /* ----- Footer ----- */
         .footer-links {
             display: flex;
             justify-content: center;
-            gap: 16px;
+            gap: 18px;
             font-size: 12px;
             color: #94a3b8;
-            margin-top: 18px;
+            margin-top: 16px;
             flex-wrap: wrap;
         }
         .footer-links a {
-            color: #64748b;
+            color: #94a3b8;
             text-decoration: none;
         }
         .footer-links a:hover {
+            color: #0b7e3d;
             text-decoration: underline;
-            color: #2563eb;
-        }
-
-        /* ----- Loading Spinner (optional) ----- */
-        .spinner {
-            display: none;
-            width: 20px;
-            height: 20px;
-            border: 3px solid #ffffff;
-            border-top: 3px solid transparent;
-            border-radius: 50%;
-            animation: spin 0.8s linear infinite;
-            margin: 0 auto;
-        }
-        @keyframes spin {
-            to {
-                transform: rotate(360deg);
-            }
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <!-- Badge -->
-    <div class="badge">🎓 2026 Financial Aid Guide</div>
+
+    <!-- Urgency Badge (matches your image) -->
+    <div class="update-badge">Grants Updated June 30th, 2026</div>
 
     <!-- Headline -->
-    <h1>Check Your <span>Eligibility</span> in Minutes</h1>
-    <p class="subhead">Find out what grants and aid you may qualify for — no paperwork, no commitment.</p>
+    <h1>Need Financial Assistance?</h1>
 
-    <!-- Qualification Checklist -->
-    <div class="checklist">
-        <div class="checklist-item">
-            <span class="icon">✓</span>
-            <span>Age 18–29 (sweet spot for aid programs)</span>
-        </div>
-        <div class="checklist-item">
-            <span class="icon">✓</span>
-            <span>U.S. resident (all 50 states included)</span>
-        </div>
-        <div class="checklist-item">
-            <span class="icon">✓</span>
-            <span>Recent graduate (within 6 months) OR planning to enrol</span>
-        </div>
-    </div>
+    <!-- Body Text (COMPLIANT version - see warning below) -->
+    <p class="description">
+        Explore your options to get Grants, Financial Aid, and access to many other free programs designed to help fund your education.
+    </p>
 
-    <!-- Primary CTA -->
-    <a href="#" id="ctaButton" class="cta-btn">→ Check If You Qualify</a>
+    <!-- CTA Button -->
+    <a href="#" id="ctaButton" class="cta-btn">→ Check Your Eligibility Now</a>
 
-    <!-- Trust signals -->
+    <!-- Trust Signals -->
     <div class="trust-row">
         <span>🔒 Secure &amp; private</span>
-        <span>⚡ 1‑minute form</span>
-        <span>🏛️ Licensed partners</span>
+        <span>⚡ Free to check</span>
+        <span>🏛️ Verified programs</span>
     </div>
 
     <!-- Disclaimer -->
     <div class="disclaimer">
         <strong>Disclaimer:</strong> This is not a government website. Subject to verification and approval.
-        Actual aid offers depend on eligibility results. 
-        <a href="#" onclick="alert('Privacy Policy: We do not share your data without consent.'); return false;">Privacy Policy</a>
-        &amp; 
-        <a href="#" onclick="alert('Terms of Service: Standard terms apply.'); return false;">Terms</a>.
+        Actual aid offers depend on eligibility results.
+        <a href="#" onclick="alert('Privacy Policy: Your data is secure.'); return false;">Privacy</a>
+        &amp;
+        <a href="#" onclick="alert('Terms of Service apply.'); return false;">Terms</a>.
     </div>
 
     <!-- Footer -->
     <div class="footer-links">
         <a href="#" onclick="alert('Contact: support@example.com'); return false;">Contact</a>
-        <a href="#" onclick="alert('© 2026 Benefits Authority. All rights reserved.'); return false;">© 2026</a>
-        <a href="#" onclick="alert('This offer is powered by MaxBounty.'); return false;">Partner</a>
+        <a href="#" onclick="alert('© 2026 Benefits Authority'); return false;">© 2026</a>
     </div>
 </div>
 
@@ -245,63 +195,51 @@
         // Replace with your actual MaxBounty tracking link
         const TRACKING_LINK = "YOUR_TRACKING_LINK_HERE";
 
-        // Optional: set default prepop values (these will be overridden if passed via URL)
+        // Default prepop values (fallback if not passed via URL)
         const DEFAULT_FIRST_NAME = "John";
         const DEFAULT_LAST_NAME = "Doe";
         const DEFAULT_EMAIL = "john.doe@example.com";
-        // ------------------------------------
+        // --------------------------------------
 
-        // Helper: get URL parameter by name
         function getParam(name) {
             const url = new URL(window.location.href);
             return url.searchParams.get(name) || '';
         }
 
-        // Helper: URL‑encode a full query string
         function buildPrepopString(first, last, email) {
             const raw = `firstName=${first}&lastName=${last}&email=${email}`;
             return encodeURIComponent(raw);
         }
 
-        // Build prepop values (priority: URL params > defaults)
         const firstName = getParam('firstName') || DEFAULT_FIRST_NAME;
         const lastName = getParam('lastName') || DEFAULT_LAST_NAME;
         const email = getParam('email') || DEFAULT_EMAIL;
 
-        // Construct the final offer URL with prepop in the 'x=' parameter
         function getOfferUrl() {
             if (!TRACKING_LINK || TRACKING_LINK === "YOUR_TRACKING_LINK_HERE") {
-                alert("⚠️ Please set your tracking link in the HTML (TRACKING_LINK variable).");
+                alert("⚠️ Please set your tracking link in the HTML.");
                 return '#';
             }
-
             const prepopEncoded = buildPrepopString(firstName, lastName, email);
-            // Check if tracking link already has a '?'
             const separator = TRACKING_LINK.includes('?') ? '&' : '?';
             return `${TRACKING_LINK}${separator}x=${prepopEncoded}`;
         }
 
-        // Handle CTA click
         const cta = document.getElementById('ctaButton');
         cta.addEventListener('click', function(e) {
             e.preventDefault();
             const url = getOfferUrl();
             if (url !== '#') {
-                // Optional: add a small loading state
                 cta.textContent = 'Redirecting...';
                 cta.style.opacity = '0.7';
                 cta.style.pointerEvents = 'none';
-
-                // Redirect after a tiny delay (for better UX)
                 setTimeout(function() {
                     window.location.href = url;
                 }, 300);
             }
         });
 
-        // (Optional) Log the final URL for debugging – remove in production
-        console.log('Prepop values used:', { firstName, lastName, email });
-        console.log('Final offer URL:', getOfferUrl());
+        console.log('Final URL:', getOfferUrl());
     })();
 </script>
 
