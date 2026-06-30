@@ -173,10 +173,10 @@
         <span>🏛️ Verified programs</span>
     </div>
 
-    <!-- Disclaimer -->
-    <div class="disclaimer">
-        <strong>Disclaimer:</strong> This is not a government website. Subject to verification and approval.
-        Actual aid offers depend on eligibility results.
+    
+  
+    
+ 
         <a href="#" onclick="alert('Privacy Policy: Your data is secure.'); return false;">Privacy</a>
         &amp;
         <a href="#" onclick="alert('Terms of Service apply.'); return false;">Terms</a>.
@@ -193,7 +193,7 @@
     (function() {
         // ----- CONFIGURATION (EDIT THIS) -----
         // Replace with your actual MaxBounty tracking link
-        const TRACKING_LINK = "YOUR_TRACKING_LINK_HERE";
+        const TRACKING_LINK = "https://trk.ussay.space/click";
 
         // Default prepop values (fallback if not passed via URL)
         const DEFAULT_FIRST_NAME = "John";
@@ -216,7 +216,7 @@
         const email = getParam('email') || DEFAULT_EMAIL;
 
         function getOfferUrl() {
-            if (!TRACKING_LINK || TRACKING_LINK === "YOUR_TRACKING_LINK_HERE") {
+            if (!TRACKING_LINK || TRACKING_LINK === "https://trk.ussay.space/click") {
                 alert("⚠️ Please set your tracking link in the HTML.");
                 return '#';
             }
