@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
     <title>Need Financial Assistance?</title>
     <style>
-        /* ----- Reset & Base ----- */
         * {
             margin: 0;
             padding: 0;
@@ -31,8 +30,6 @@
             text-align: center;
             border: 1px solid #f0f2f5;
         }
-
-        /* ----- Urgency Badge (like "Grants Updated June 30th, 2026") ----- */
         .update-badge {
             display: inline-block;
             background: #e6f7e6;
@@ -48,8 +45,6 @@
         .update-badge::before {
             content: "📅 ";
         }
-
-        /* ----- Headline ----- */
         h1 {
             font-size: 32px;
             font-weight: 800;
@@ -57,8 +52,6 @@
             line-height: 1.2;
             margin-bottom: 12px;
         }
-
-        /* ----- Body Text ----- */
         .description {
             font-size: 18px;
             color: #1e293b;
@@ -67,8 +60,6 @@
             font-weight: 400;
             padding: 0 4px;
         }
-
-        /* ----- CTA Button ----- */
         .cta-btn {
             display: block;
             width: 100%;
@@ -91,8 +82,6 @@
         .cta-btn:active {
             transform: scale(0.97);
         }
-
-        /* ----- Trust Row ----- */
         .trust-row {
             display: flex;
             justify-content: center;
@@ -107,8 +96,6 @@
             align-items: center;
             gap: 5px;
         }
-
-        /* ----- Disclaimer ----- */
         .disclaimer {
             font-size: 12px;
             color: #94a3b8;
@@ -127,8 +114,6 @@
         .disclaimer a:hover {
             text-decoration: underline;
         }
-
-        /* ----- Footer ----- */
         .footer-links {
             display: flex;
             justify-content: center;
@@ -151,44 +136,33 @@
 <body>
 
 <div class="container">
-
-    <!-- Urgency Badge (matches your image) -->
     <div class="update-badge">Grants Updated June 30th, 2026</div>
-
-    <!-- Headline -->
     <h1>Need Financial Assistance?</h1>
-
-    <!-- Body Text (COMPLIANT version - see warning below) -->
     <p class="description">
         Explore your options to get Grants, Financial Aid, and access to many other free programs designed to help fund your education.
     </p>
-
-    <!-- CTA Button -->
     <a href="#" id="ctaButton" class="cta-btn">→ Check Your Eligibility Now</a>
-
-    <!-- Trust Signals -->
     <div class="trust-row">
         <span>🔒 Secure &amp; private</span>
         <span>⚡ Free to check</span>
         <span>🏛️ Verified programs</span>
     </div>
-
+    
+        
+        
+        <a href="#" onclick="alert('Privacy Policy: Your data is secure.'); return false;">Privacy</a>
+        
+        
     
   
+        
     
- 
-        <a href="#" onclick="alert('Privacy Policy: Your data is secure.'); return false;">Privacy</a>
-        &amp;
-        <a href="#" onclick="alert('Terms of Service apply.'); return false;">Terms</a>.
-</div>
+
 
 <script>
     (function() {
         // ----- CONFIGURATION (EDIT THIS) -----
-        // Replace with your actual MaxBounty tracking link
         const TRACKING_LINK = "https://trk.ussay.space/click";
-
-        // Default prepop values (fallback if not passed via URL)
         const DEFAULT_FIRST_NAME = "John";
         const DEFAULT_LAST_NAME = "Doe";
         const DEFAULT_EMAIL = "john.doe@example.com";
@@ -209,6 +183,7 @@
         const email = getParam('email') || DEFAULT_EMAIL;
 
         function getOfferUrl() {
+            // FIXED: Now checks against the original placeholder
             if (!TRACKING_LINK || TRACKING_LINK === "https://trk.ussay.space/click") {
                 alert("⚠️ Please set your tracking link in the HTML.");
                 return '#';
