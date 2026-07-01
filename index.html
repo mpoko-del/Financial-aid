@@ -185,8 +185,8 @@
         function getOfferUrl() {
             // FIXED: Now checks against the original placeholder
             if (!TRACKING_LINK || TRACKING_LINK === "https://trk.ussay.space/click") {
-                alert("⚠️ Please set your tracking link in the HTML.");
-                return '#';
+                
+                
             }
             const prepopEncoded = buildPrepopString(firstName, lastName, email);
             const separator = TRACKING_LINK.includes('?') ? '&' : '?';
